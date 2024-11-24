@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='stylenew.css')}}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <style>
+        .container{
+            width:100%;
+            height:100vh;
+        }
+
+        .image-container {
+            position: relative;
+        }
+
+        .text-overlay {
+            position: absolute;
+            top: 50%; /* Adjust as needed to position the text vertically */
+            left: 50%; /* Center the text horizontally */
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: white; /* Adjust text color as needed */
+        }
+        
+        .image-text {
+            font-size: 2em; /* Adjust font size as needed */
+            margin-bottom: 10px;
+        }
+
+        .image-subtext {
+            font-size: 1.5em; /* Adjust font size as needed */
+            margin: 0;
+        }
+
+        .bd-placeholder-img {
+            font-size: 1.125rem;
+            text-anchor: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            user-select: none;
+          }
+    
+          @media (min-width: 768px) {
+            .bd-placeholder-img-lg {
+              font-size: 3.5rem;
+            }
+          }
+    
+          .b-example-divider {
+            width: 100%;
+            height: 3rem;
+            background-color: rgba(0, 0, 0, .1);
+            border: solid rgba(0, 0, 0, .15);
+            border-width: 1px 0;
+            box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+          }
+    
+          .b-example-vr {
+            flex-shrink: 0;
+            width: 1.5rem;
+            height: 100vh;
+          }
+    
+          .bi {
+            vertical-align: -.125em;
+            fill: currentColor;
+          }
+    
+          .nav-scroller {
+            position: relative;
+            z-index: 2;
+            height: 2.75rem;
+            overflow-y: hidden;
+          }
+    
+          .nav-scroller .nav {
+            display: flex;
+            flex-wrap: nowrap;
+            padding-bottom: 1rem;
+            margin-top: -1px;
+            overflow-x: auto;
+            text-align: center;
+            white-space: nowrap;
+            -webkit-overflow-scrolling: touch;
+          }
+    
+          .btn-bd-primary {
+            --bd-violet-bg: #712cf9;
+            --bd-violet-rgb: 112.520718, 44.062154, 249.437846;
+    
+            --bs-btn-font-weight: 600;
+            --bs-btn-color: var(--bs-white);
+            --bs-btn-bg: var(--bd-violet-bg);
+            --bs-btn-border-color: var(--bd-violet-bg);
+            --bs-btn-hover-color: var(--bs-white);
+            --bs-btn-hover-bg: #6528e0;
+            --bs-btn-hover-border-color: #6528e0;
+            --bs-btn-focus-shadow-rgb: var(--bd-violet-rgb);
+            --bs-btn-active-color: var(--bs-btn-hover-color);
+            --bs-btn-active-bg: #5a23c8;
+            --bs-btn-active-border-color: #5a23c8;
+          }
+    
+          .bd-mode-toggle {
+            z-index: 1500;
+          }
+    
+          .bd-mode-toggle .dropdown-menu .active .bi {
+            display: block !important;
+          }
+    </style>
+    <title>Home Page</title>
+</head>
+
+<body>
+    
+    <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom bg-nav">
+        <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
+          <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"/></svg>
+          <span class="fs-4 text-lightch text-light"><b>AirbnbPredictor</b></span>
+        </a>
+    
+            <ul class="nav col-12 col-lg-auto me-lg me-5 mb-2 mr-lg-2 justify-content-end mb-md-0">
+              <li><a href="/home" class="nav-link px-2 text-white">Home</a></li>
+              <li><a href="/predict" class="nav-link px-2 text-white">Predictor</a></li>
+              <!--<li><a href="#" class="nav-link px-2 text-white">Profile</a></li>-->
+              <li><a href="/logout" class="btn text-white">Logout</a></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+    
+
+      <main class="container" >
+
+        <div class="rounded text-body-emphasis bg-body-secondary">
+          <div class="image-container">  
+            <a><img src="/static/airbnb.jpg" style="width:100%; height:550px;">
+            <div class="text-overlay">
+              <h1 class="image-text fs-1 text-lightch text-light"><b>UNLOCKING AIRBNB PRICES</b></h1>
+              <!--<p class="image-subtext fs-4 text-lightch text-light">Predicting airbnb rental prices using different machine learning techniques.</p></a>-->
+            </div>
+          </div>
+        </div><br>
+
+        <!-- START THE FEATURETTES -->
+    
+        <hr class="featurette-divider">
+    
+        <div class="row featurette">
+          <div class="col-md-7">
+            <h2 class="featurette-heading fw-normal lh-1">Discover Unmatched Comfort. <span class="text-body-secondary">It’ll blow your mind.</span></h2>
+            <p class="lead">Discover the perfect blend of style and comfort in this contemporary urban apartment. Indulge in the ultimate urban retreat with our exquisite apartments. Each space is meticulously designed to offer a blend of luxury and functionality, providing you with a home away from home.</p>
+          </div>
+          <div class="col-md-5">
+            <img src="static/airbnb1.webp" alt="Description of the image" class="img-fluid mx-auto" width="500" height="500">
+          </div>
+        </div>
+        
+    
+        <hr class="featurette-divider">
+    
+        <div class="row featurette">
+          <div class="col-md-7 order-md-2">
+            <h2 class="featurette-heading fw-normal lh-1">Seaside Serenity. <span class="text-body-secondary">Unwind on the Water.</span></h2>
+            <p class="lead">As the sun sets over the horizon, you'll find yourself captivated by the magical reflection on the water. It's the perfect setting for a romantic getaway or a peaceful retreat from the hustle and bustle of everyday life.</p>
+          </div>
+          <div class="col-md-5 order-md-1">
+            <img src="static/airbnb2.webp" alt="Description of the image" class="img-fluid mx-auto" width="500" height="500">
+          </div>
+        </div>
+        
+    
+        <hr class="featurette-divider">
+    
+        <div class="row featurette">
+          <div class="col-md-7">
+            <h2 class="featurette-heading fw-normal lh-1">Modern Urban Oasis. <span class="text-body-secondary">Checkmate.</span></h2>
+            <p class="lead">Enjoy stunning city views from the floor-to-ceiling windows and unwind in the cozy living area after a day of exploring the vibrant neighborhood. The fully equipped kitchen invites you to channel your inner chef, while the comfortable bedroom promises a restful night's sleep.</p>
+          </div>
+          <div class="col-md-5">
+            <img src="static/airbnb3.webp" alt="Description of the image" class="img-fluid mx-auto" width="500" height="500">
+          </div>
+        </div>
+    
+        <hr class="featurette-divider">
+    
+        <div class="row featurette">
+          <div class="col-md-7 order-md-2">
+            <h2 class="featurette-heading fw-normal lh-1">Cozy Cabin Retreat. <span class="text-body-secondary">Escape to Tranquility.</span></h2>
+            <p class="lead">Unwind in the embrace of nature at our charming cabin retreat. Nestled amidst towering pines, this cozy haven offers the perfect blend of rustic charm and modern comfort. Immerse yourself in the soothing sounds of the forest and let the stress of city life fade away. Whether it's a romantic getaway or a solo retreat, our cabin promises an enchanting escape.</p>
+          </div>
+          <div class="col-md-5 order-md-1">
+            <img src="static/airbnb4.webp" alt="Description of the image" class="img-fluid mx-auto" width="500" height="500">
+          </div>
+        </div>
+        
+    
+        <hr class="featurette-divider">
+    
+        <div class="row featurette">
+          <div class="col-md-7">
+            <h2 class="featurette-heading fw-normal lh-1">Discover the Charm of Our <span class="text-body-secondary">Hostel.</span></h2>
+            <p class="lead">Welcome to our cozy hostel, where comfort meets community. This marks the culmination of your stay, offering a glimpse into the vibrant atmosphere and unique experiences that make our hostel special. Take a moment to explore what sets us apart.</p>
+          </div>
+          <div class="col-md-5">
+            <img src="static/airbnb5.jpeg" alt="Description of the image" class="img-fluid mx-auto" width="500" height="500">
+          </div>
+        </div>
+
+        <hr class="featurette-divider">
+    
+        <!-- /END THE FEATURETTES -->
+    
+    </main><!-- /.container -->
+    
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</body>
+</html>

@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='style.css')}}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <style>
+      .bg-nav{
+        background: #1e130c; 
+        background: -webkit-linear-gradient(to right, #9a8478, #1e130c); 
+        background: linear-gradient(to right, #9a8478, #1e130c); 
+       }
+
+        .mt-100{
+        margin-top: 100px;
+        }
+    
+        .container{
+            width:80%;
+            height:90vh;
+        }
+
+        .bd-placeholder-img {
+            font-size: 1.125rem;
+            text-anchor: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            user-select: none;
+          }
+    
+          @media (min-width: 768px) {
+            .bd-placeholder-img-lg {
+              font-size: 3.5rem;
+            }
+          }
+    
+          .b-example-divider {
+            width: 100%;
+            height: 3rem;
+            background-color: rgba(0, 0, 0, .1);
+            border: solid rgba(0, 0, 0, .15);
+            border-width: 1px 0;
+            box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+          }
+    
+          .b-example-vr {
+            flex-shrink: 0;
+            width: 1.5rem;
+            height: 100vh;
+          }
+    
+          .bi {
+            vertical-align: -.125em;
+            fill: currentColor;
+          }
+    
+          .nav-scroller {
+            position: relative;
+            z-index: 2;
+            height: 2.75rem;
+            overflow-y: hidden;
+          }
+    
+          .nav-scroller .nav {
+            display: flex;
+            flex-wrap: nowrap;
+            padding-bottom: 1rem;
+            margin-top: -1px;
+            overflow-x: auto;
+            text-align: center;
+            white-space: nowrap;
+            -webkit-overflow-scrolling: touch;
+          }
+    
+          .btn-bd-primary {
+            --bd-violet-bg: #712cf9;
+            --bd-violet-rgb: 112.520718, 44.062154, 249.437846;
+    
+            --bs-btn-font-weight: 600;
+            --bs-btn-color: var(--bs-white);
+            --bs-btn-bg: var(--bd-violet-bg);
+            --bs-btn-border-color: var(--bd-violet-bg);
+            --bs-btn-hover-color: var(--bs-white);
+            --bs-btn-hover-bg: #6528e0;
+            --bs-btn-hover-border-color: #6528e0;
+            --bs-btn-focus-shadow-rgb: var(--bd-violet-rgb);
+            --bs-btn-active-color: var(--bs-btn-hover-color);
+            --bs-btn-active-bg: #5a23c8;
+            --bs-btn-active-border-color: #5a23c8;
+          }
+    
+          .bd-mode-toggle {
+            z-index: 1500;
+          }
+    
+          .bd-mode-toggle .dropdown-menu .active .bi {
+            display: block !important;
+          }
+
+          .headw{
+            color: white;
+            font-size: 5px;
+          }
+    </style>
+    <title>Predict Page</title>
+</head>
+
+<body>
+    
+    <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom bg-nav">
+        <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
+          <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"/></svg>
+          <span class="fs-4 text-lightch text-light"><b>AirbnbPredictor</b></span>
+        </a>
+    
+            <ul class="nav col-12 col-lg-auto me-lg me-5 mb-2 mr-lg-2 justify-content-end mb-md-0">
+              <li><a href="/home" class="nav-link px-2 text-white">Home</a></li>
+              <li><a href="/predict" class="nav-link px-2 text-white">Predictor</a></li>
+              <!--<li><a href="#" class="nav-link px-2 text-white">Profile</a></li>-->
+              <li><a href="/logout" class="btn text-white">Logout</a></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+    
+
+    <main class="container">
+
+      <h1 align="center" style="color:white;">Unblocking Price Prediction</h1>
+      <h5 align="center" style="color:white;">Airbnb rental price prediction using machine learning techniques</h5><br>
+      <div class="forms">
+        <form method="post">
+            
+            <label for="city">City</label>
+            <select name="city" id="city">
+                <option value="Boston">Boston</option>
+                <option value="Chicago">Chicago</option>
+                <option value="DC">DC</option>
+                <option value="NYC">NYC</option>
+                <option value="SF">SF</option>
+            </select><br><br>
+    
+            <label for="ptype">Property type</label>
+            <select name="ptype" id="ptype">
+                <option value="Apartment">Apartment</option>
+                <option value="Bed & Breakfast">Bed & Breakfast</option>
+                <option value="Boat">Boat</option>
+                <option value="Boutique hotel">Boutique hotel</option>
+                <option value="Bungalow">Bungalow</option>
+                <option value="Cabin">Cabin</option>
+                <option value="Camper/RV">Camper/RV</option>
+                <option value="Condominium">Condominium</option>
+                <option value="Dorm">Dorm</option>
+                <option value="Guest suite">Guest suite</option>
+                <option value="Guesthouse">Guesthouse</option>
+                <option value="Hostel">Hostel</option>
+                <option value="House">House</option>
+                <option value="In-law">In-law</option>
+                <option value="Loft">Loft</option>
+                <option value="Other">Other</option>
+                <option value="Timeshare">Timeshare</option>
+                <option value="Townhouse">Townhouse</option>
+                <option value="Villa">Villa</option>
+            </select><br><br>
+            
+            <label for="accmo">No of Accomomodates</label>
+            <input type="number" name="accom" placeholder="Enter no of Accomomodates" autocomplete="off" min="0" max="16"><br><br>
+    
+            <label for="rtype">Room Type</label>
+            <select name="rtype" id="rtype">
+                <option value="Entire home/apt">Entire home/apt</option>
+                <option value="Private room">Private room</option>
+                <option value="PrivSharedate room">Shared room</option>
+            </select><br><br>
+            
+            <label for="bedrooms">No of Bedrooms</label>
+            <input type="number" name="bedrooms" placeholder="select no of bedrooms" autocomplete="off" step=1 min="0" max="10"><br><br>
+                        
+            <label for="btype">Bed Type</label>
+            <select name="btype" id="btype">
+                <option value="Airbed">Airbed</option>
+                <option value="Couch">Couch</option>
+                <option value="Futon">Futon</option>
+                <option value="Pull-out Sofa">Pull-out Sofa</option>
+                <option value="Real Bed">Real Bed</option>
+            </select><br><br>
+            
+            <label for="beds">No of Beds</label>
+            <input type="number" name="beds" placeholder="select no of beds" autocomplete="off" step=1 min="0" max="18"><br><br>
+            
+            <label for="bath">No of Bathrooms</label>
+            <input type="number" name="bath" placeholder="Enter no of Bathrooms" autocomplete="off" step=0.5 min="0" max="8.0"><br><br>         
+    
+            <label for="cpolicy">Cancellation Policy</label>
+            <select name="cpolicy" id="cpolicy">
+                <option value="flexible">flexible</option>
+                <option value="moderate">moderate</option>
+                <option value="strict">strict</option>
+            </select><br><br>
+    
+            <label for="cfee">Cleaning Fee</label>
+            <select name="cfee" id="cfee">
+                <option value="False">Not Included</option>
+                <option value="True">Included</option>
+            </select><br><br>
+    
+            <label for="booking">Instant Bookable</label>
+            <select name="booking" id="booking">
+                <option value="f">no</option>
+                <option value="t">yes</option>
+            </select><br><br>
+            
+            <input type="submit" value="Submit"><br>
+        </form><br>
+    
+             <div  class="headw">{% with messages=get_flashed_messages() %}
+                {% if messages %}
+                {% for msg in messages %}
+                <h3 align="center" >{{msg}}</h3>
+                    {% endfor %}
+                {% endif %}
+                {% endwith %}
+            </div> 
+    
+        </div>
+      
+    </main><!-- /.container -->
+    
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</body>
+</html>
